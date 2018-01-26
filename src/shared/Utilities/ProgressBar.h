@@ -37,7 +37,7 @@ class BarGoLink
         /**
          * @brief constructors
          *
-         * @param row_count
+         * @param row_count  -- -- how many times grow to 100%
          */
         explicit BarGoLink(int row_count);
         /**

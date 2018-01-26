@@ -61,13 +61,13 @@ void BarGoLink::init(int row_count)
         { return; }
 
 #ifdef _WIN32
-    printf("\x3D");
+    printf("\x3D");  // = symbol 
 #else
     printf("[");
 #endif
     for (int i = 0; i < indic_len; ++i) { printf(empty); }
 #ifdef _WIN32
-    printf("\x3D 0%%\r\x3D");
+    printf("\x3D 0%%\r\x3D");  // \r\x3D  重新回到开头处再打印一个=号,然后将输入焦点定位到第一个=号后面
 #else
     printf("] 0%%\r[");
 #endif
@@ -83,16 +83,16 @@ void BarGoLink::step()
 
     if (num_rec == 0) { return; }
     ++rec_no;
-    n = rec_no * indic_len / num_rec;
+    n = rec_no * indic_len / num_rec;  // the number of = symbol need to print this times
     if (n != rec_pos)
     {
 #ifdef _WIN32
-        printf("\r\x3D");
+        printf("\r\x3D");  // 回到开头处打印一个=号
 #else
         printf("\r[");
 #endif
-        for (i = 0; i < n; ++i) { printf(full); }
-        for (; i < indic_len; ++i) { printf(empty); }
+        for (i = 0; i < n; ++i) { printf(full); }   // print n = symbol
+        for (; i < indic_len; ++i) { printf(empty); } // print remaining empty
         float percent = (((float)n / (float)indic_len) * 100);
 #ifdef _WIN32
         printf("\x3D %i%%  \r\x3D", (int)percent);
