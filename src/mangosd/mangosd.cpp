@@ -276,7 +276,7 @@ static void usage(const char* prog)
 int main(int argc, char** argv)
 {
     ///- Command line parsing
-    char const* cfg_file = MANGOSD_CONFIG_LOCATION;
+    char const* cfg_file = MANGOSD_CONFIG_LOCATION;  // mangosd.conf
 
     char const* options = ":a:c:s:";
 

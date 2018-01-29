@@ -68,7 +68,7 @@ bool Config::SetSource(const char* file)
 }
 
 bool Config::Reload()
-{
+{   // safe to delete null pointer
     delete mConf;
     mConf = new ACE_Configuration_Heap;
 
